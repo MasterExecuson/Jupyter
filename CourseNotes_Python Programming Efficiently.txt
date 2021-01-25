@@ -1,0 +1,134 @@
+Course Title: Python: Programming Efficiently
+
+Description: Cut down on your development time by learning how to write elegant code in an efficient manner, specifically in Python—the popular and pragmatic computer language. Michele Vallisneri explains how to make your Python code more expressive and concise, and leverage the most powerful features of the language. He shines a spotlight on some of the strongest third-party packages you can take advantage of, discusses object-oriented and functional programming, and shares strategies for improving the performance of your code. Michele illustrates these concepts with many intriguing examples, showing how to make 3D images and animations of the sun, draw fractals, implement a graphical programming language, and more.
+
+
+***********************************************
+Chapter: 2. Writing Python Efficiently
+***********************************************
+
+
+-----------------------------------------------
+Video: Design efficient loops
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:00            Generator expression: One line of code 
+
+0:06:56            itertools » Iterators          
+
+
+-----------------------------------------------
+Video: Comprehensions and generators
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:02:07            Muito legal essa forma condensada de realizar loops, principalmente com DIctionaries 
+
+0:02:41            Engaçado essa função cities_after_1930, por que ele pesquisa o Key e o resultado de um dicionário através da função .items(), em 2:41 - Comprehension and generators 
+
+0:03:12            em 3:31, ele usa o argumento City dentro de um arquivo Json para chamar a coordenada que possui aquele nome dentro do arquivo Json... Interessante 
+
+0:05:18            Engraçado que considerando o objeto generator "even" (5:15), você está efetivamente colocando um loop dentro de uma variável. Testando no Jupyter nootbook online, o objeto só pode ser usado uma vez antes de ser "destruido"... Ele continua sendo um objeto generator porém não possui mais o loop dentro de si. 
+
+
+-----------------------------------------------
+Video: Exploit Python collections
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:02:53            Olha que legal, o namedtuple não pode receber listas, ele precisa receber quatro argumentos. Usando " * ", ele consegue "espalhar" os valores da lista line.split('\t')! interessante... fico me perguntando como utilizar isso da forma correta... Preciso ter o mesmo número de parâmetros e uma lista, a princípio... 
+
+0:04:22            Interessante que passando o resultado de coléctions como pares de numeros na função dict(), ele criou dicionários com a chave sendo o nome do país, e mais ainda, chamou duas funções para dicionários: .keys() e .values() 
+
+0:04:27            Caramba, olha cimi ele criou um dicionário a partir de uma lista de listas... ele usou a função dict() que pegou cada lista da lista e transformou num dicionário 
+
+0:05:16            for i, year in enumerate([2004,208,2012,2016],1):
+
+
+faz com que o i, que seria o enumerador, inicie em 1 
+
+0:06:31            collections.defaultdict(list) gera um dicionário vazio que cria um novo item quando é dado .append e não possui o key válido. Isso simplifica o código, diminuindo um "if" 
+
+0:06:39            winner_by_country = collections.defaultdict(list) faz com que uma lista vazia seja o objeto deful do dicionário, criando uma nova lista sempre que for chamado um Key que não existe. Dessa forma, é possivel dar append à lista que foi recem criada imediatamente 
+
+0:07:02            Legal como o print do python adiciona o espaço automaticamente... interessante 
+
+0:07:06            .popleft() parece uma função interessante, será que funciona com dict? E o que é um deque???? 
+
+
+-----------------------------------------------
+Video: Write Pythonic code
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:02:15            Set parece ser bem interessante para trabalhar com grupos, principalmente considerando as funções & , | , - 
+
+0:03:28            Legal a função .startswith()   
+
+0:04:09            Legal essa forma de chamar variáveis dentro de Print() através de {variável} e declarar a função .format(variavel = X) em Print() (print('...{variavel}'.format(variavel = X)) 
+
+0:04:20            Caraaaamba, melhorou ainda mais, a gente pode agora escrever o atributo do objeto entre { } e declarar apenas a variável no .format()!! 
+
+0:04:34            Nooooossa, melhorou ainda mais, agora não precisa da função .format, apenas escrever print(f ' {variavel.atributo} ') que a variável é chamada automaticamente! Aceita também funções como .upper() para tornar maiusculo, muito bom 
+
+0:05:30            legal isso de definir uma função que exige uma biblioteca, apenas acrescentando  " ** "  anntes do argumento da função. 
+
+0:06:10            medal é um namedtuple, e necessita getattr(tuple, nome_da_coluna) para retornar o atributo do tuple 
+
+0:06:11            all (logical and) e any (logical or) representam a parte lógica. A cada medalha, ele verifica se a primeira chave bate com a melhada, depois verifica se a segunda chave bate com a medalha e por último realiza a operação "AND", entre as duas, retornando verdadeiro ou falso, por isso quando ele executou all(getattr(medals[0], key) == value for key, value in kwargs.items()) o resultado foi "TRUE" 
+
+0:06:38            Colocar em uma definição de função " * " antes da variável, identifica que pode absorver argumentos de posição genérica, colocando-os em uma lista. 
+
+
+***********************************************
+Chapter: 4. Efficient Python with Object-Oriented and Functional Programming
+***********************************************
+
+
+-----------------------------------------------
+Video: Functional techniques in Python
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:04:10            o cara em "for f in koch:" está chamando a função f = F(10) e aplicando f(t1), logo, f(t1)m = F(10)(t1)???? ou F(10,t1)??? O primeiro é o correto, pois F(10) retorna a função Turtle.foward ( **self** , 10), que aguarda um parametro inputado pelo usuário (**self**). Para efeitos de entendimento, devido a função partial, conseguimos escrever a função retornada como Turtle.foward(). aplicando f(t1) = F(10)(t1) temos Turtle.foward(t1). Lembro de já ter feito algo semelhante quando chamei um valor de uma lista dentro de uma biblioteca... Dict[10](2), por exeplo, sendo o dicionário retornando uma lista, por exeplo. 
+
+
+-----------------------------------------------
+Video: Function decorators
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:02:57            O decorador de funções @functools.lru_cache(maxsize = None) literalemente grava a função para que foi chamada e guarda a lista de valores usada recentemente (list recent used =  lru), sem precisar fazer nenhum tipo de código interno que guarde esse código... Muito interessante para algorítmos de busca e repetitivos, como Fibonacci. Como será que eu deleto os valores da lista? por que ele gravou de forma persistente entre uma chamada da função e a próxima, 
+
+0:03:42            veja que o decorador de função, na realidade, se integra a função, não sendo mais necessário chamar ele... Engraçado por que ele fica imediatamente acima da definição da função... 
+
+0:05:19            Reduções são operações que se aplicam aos primeiros 2 itens, depois aplicando o resultado disto para iterar com o terceiro item, e assim por diante 
+
+0:05:27            map é na verdade um iterador, que aplica a função do primeiro argumento a todos os itens do segundo argumento. Ele retorna um iterador, por ser na verdade a aplicação repetidada de uma função. colocando-o em uma lista "list(map(...))", ele retorna a lista de resultados das funções. Filter, por outro lado aplica um filtro a todos os elementos de uma lista, segundo a função Booleana que foi passada 
+
+
+-----------------------------------------------
+Video: Challenge: Bale of turtles
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:01:03            from collections.abc import iterable
+isinstace([1,2,3],iterable)
+R: TRUE
+isinstance(2.0,iterable)
+R: FALSE 
+
+
+***********************************************
+Chapter: 5. Performance Optimization in Python
+***********************************************
+
+
+-----------------------------------------------
+Video: Challenge: Inverted index
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:02:18            Ferramentas para multiprocessamento: Dask, PySpark 
+
